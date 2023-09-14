@@ -13,15 +13,26 @@ function App() {
   
   const [resume, setResume] = useState({
     firstName: "FirstName",
-    lastName: "LastName"
+    lastName: "LastName",
+    email: "sample@samplemail.com",
+    phone: '1-123-123-1234'
   })
+
   const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+
+  const updateResume = () => {
+    setResume({...resume, firstName: firstName, lastName: lastName, email: email, phone: phone})
+  }
 
   return (
     <>
     <div className="App">
       <GeneralInfo 
         firstName={firstName}
+        setFirstName={setFirstName}
         show={showModal} 
         onCloseButtonClick={toggleShowModal} 
       />

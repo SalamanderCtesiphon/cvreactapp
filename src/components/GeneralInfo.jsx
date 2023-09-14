@@ -1,6 +1,6 @@
 
 
-function GeneralInfo({ firstName, show, onCloseButtonClick }) {
+function GeneralInfo({ firstName, setFirstName, show, onCloseButtonClick }) {
   if (!show) {
     return null;
   }
