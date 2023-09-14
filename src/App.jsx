@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import EducationalInfo from './components/EducationalInfo'
 import GeneralInfo from './components/GeneralInfo'
@@ -11,6 +11,10 @@ function App() {
     setShowModal(!showModal);
   };
   
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
   const [resume, setResume] = useState({
     firstName: "FirstName",
     lastName: "LastName",
@@ -18,15 +22,17 @@ function App() {
     phone: '1-123-123-1234'
   })
 
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
+  
 
   const updateResume = () => {
     setResume({...resume, firstName: firstName, lastName: lastName, email: email, phone: phone})
   }
 
+  useEffect(() => {
+    updateResume()
+    console.log(resume)
+    
+  }, [])
   return (
     <>
     <div className="App">
