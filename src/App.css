@@ -156,3 +156,11 @@ li {
 .headRight {
   text-align: right;
 }
+
+/* General Info Modal */
+
+.genInfoForm {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
