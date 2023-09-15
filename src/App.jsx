@@ -11,7 +11,14 @@ function App() {
     setShowModal(!showModal);
   };
   
-  const [firstName, setFirstName] = useState('')
+  const [firstName, setFirstName] = useState("FirstName")
+  const [lastName, setLastName] = useState("LastName")
+  const [address, setAddress] = useState("1234 Some St.")
+  const [city, setCity] = useState("Some Town")
+  const [province, setProvince] = useState("Some State")
+  const [zip, setZip] = useState("12345")
+  const [email, setEmail] = useState("sample@sample.com")
+  const [phone, setPhone] = useState("1-123-123-1234")
   const [resume, setResume] = useState({
     firstName: "FirstName",
     lastName: "LastName",
@@ -24,23 +31,27 @@ function App() {
   })
 
   const onGeneralInfoSubmit = () => {
-    setResume({...resume, firstName: firstName})
+    setResume({...resume, firstName: firstName, lastName: lastName})
   }
 
 
-
+  console.log(resume)
   useEffect(() => {
+    onGeneralInfoSubmit()
     console.log(resume)
     
   }, [])
   return (
     <>
+    <button onClick={() => onGeneralInfoSubmit()}>update Resume</button>
     <div className="App">
       <GeneralInfo 
         show={showModal} 
         onCloseButtonClick={toggleShowModal} 
-        onGeneralInfoSubmit={onGeneralInfoSubmit}
+        setFirstName={setFirstName}
         firstName={firstName}
+        setLastName={setLastName}
+        lastName={lastName}
       />
       <button 
         className="blue-button" 
