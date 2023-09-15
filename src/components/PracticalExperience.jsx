@@ -1,8 +1,31 @@
 import React from 'react'
 
-function PracticalExperience() {
+function PracticalExperience({show, onCloseButtonClick}) {
+  if (!show) {
+    return null;
+  }
   return (
-    <div>PracticalExperience</div>
+    <>
+      <div className="modal-wrapper">
+      <div className="modal">
+        <div className="body">
+          Click on the close button to close the modal.
+        </div>
+        <div className="genInfoForm">
+          <label htmlFor="firstName">First name:</label>
+          <input 
+            type="text" 
+            name="firstName" 
+            id="firstName" 
+          />
+        </div>
+        <div className="footer">
+          <button onClick={onCloseButtonClick}>Close Modal</button>
+        </div>
+      </div>
+
+    </div>
+    </>
   )
 }
 

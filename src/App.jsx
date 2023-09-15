@@ -6,9 +6,19 @@ import PracticalExperience from './components/PracticalExperience'
 
 function App() {
   const [showModal, setShowModal] = useState(false);
+  const [showEducation, setShowEducation] = useState(false)
+  const [showExperience, setShowExperience] = useState(false)
 
   const toggleShowModal = () => {
     setShowModal(!showModal);
+  };
+
+  const toggleShowEducation = () => {
+    setShowEducation(!showEducation);
+  };
+
+  const toggleShowExperience = () => {
+    setShowExperience(!showExperience);
   };
   
   const [firstName, setFirstName] = useState("FirstName")
@@ -44,7 +54,9 @@ function App() {
     })
   }
 
-  console.log(resume)
+  useEffect(() => {
+    console.log(resume)
+  }, [])
   return (
     <>
     <button onClick={() => onGeneralInfoSubmit()}>update Resume</button>
@@ -69,20 +81,41 @@ function App() {
         setPhone={setPhone}
         phone={phone}
       />
-      <button 
-        className="blue-button" 
-        onClick={toggleShowModal}
-      >
-        Edit General Info
-      </button>
+      <EducationalInfo 
+        show={showEducation}
+        onCloseButtonClick={toggleShowEducation}
+      />
+      <PracticalExperience 
+        show={showExperience}
+        onCloseButtonClick={toggleShowExperience}
+      />
+      <div className="btnBox">
+        <button 
+          className="blue-button" 
+          onClick={toggleShowModal}
+        >
+          Edit General Info
+        </button>
+        <button
+          className='blue-button'
+          onClick={toggleShowEducation}
+        >
+          Update Education
+        </button>
+        <button
+          className='blue-button'
+          onClick={toggleShowExperience}
+        >
+          Update Experience
+        </button>
+      </div>
       <div className="resumeDisplay">
         <div className="resumeHeader">
           <div className="headLeft">
             <ul>
               <li>{resume.firstName}  {resume.lastName}</li>
               <li>{resume.address}</li>
-              <li>{resume.city}, {resume.province}</li>
-              <li> {resume.zip}</li>
+              <li>{resume.city}, {resume.province} {resume.zip}</li>
             </ul>      
           </div>
           <div className="headRight">
@@ -95,8 +128,6 @@ function App() {
           </div>
         </div>
       </div>
-      <EducationalInfo />
-      <PracticalExperience />
     </div>
     </>
   )
