@@ -130,3 +130,9 @@ body {
 .modal .body {
   padding: 20px;
 }
+
+.resumeDisplay {
+  height: 300px;
+  width: 200pc;
+  background-color: white;
+}

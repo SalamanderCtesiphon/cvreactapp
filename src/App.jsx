@@ -38,8 +38,14 @@ function App() {
         className="blue-button" 
         onClick={toggleShowModal}
       >
-        Open Modal
+        Edit General Info
       </button>
+    </div>
+    <div className="resumeDisplay">
+      {resume.firstName}
+      {resume.lastName}
+      {resume.email}
+      {resume.phone}
     </div>
     <EducationalInfo />
     <PracticalExperience />
