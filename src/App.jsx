@@ -40,6 +40,17 @@ function App() {
     phone: '1-123-123-1234'
   })
 
+  const [school, setSchool] = useState("Some University")
+  const [major, setMajor] = useState("An Important Degree")
+  const [startDate, setStartDate]= useState("January 2021")
+  const [finalDate, setFinalDate] = useState("January 2012")
+  const [education, setEducation] = useState({
+    school: "Some University",
+    major: "An Important Degree",
+    startDate: "January 2021",
+    finalDate: "January 2012"
+  })
+
   const onGeneralInfoSubmit = () => {
     setResume({
       ...resume, 
