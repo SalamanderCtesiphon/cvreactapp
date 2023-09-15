@@ -134,9 +134,29 @@ body {
 }
 
 .resumeDisplay {
+  border-radius: 4px;
+  padding: 4px;
   display: flex;
   height: 600px;
   width: 800px;
   background-color: white;
   color: black;
+}
+
+.resumeHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+li {
+  list-style: none;
+}
+
+.headLeft {
+  
+}
+
+.headRight {
+  text-align: right;
 }

@@ -15,6 +15,10 @@ function App() {
   const [resume, setResume] = useState({
     firstName: "FirstName",
     lastName: "LastName",
+    address: "1234 Some St.",
+    city: "Some Town",
+    province: "Some State",
+    zip: "12345",
     email: "sample@samplemail.com",
     phone: '1-123-123-1234'
   })
@@ -41,10 +45,24 @@ function App() {
         Edit General Info
       </button>
       <div className="resumeDisplay">
-        {resume.firstName}
-        {resume.lastName}
-        {resume.email}
-        {resume.phone}
+        <div className="resumeHeader">
+          <div className="headLeft">
+            <ul>
+              <li>{resume.firstName}  {resume.lastName}</li>
+              <li>{resume.address}</li>
+              <li>{resume.city}, {resume.province}</li>
+              <li> {resume.zip}</li>
+            </ul>      
+          </div>
+          <div className="headRight">
+            <ul>
+              <li> {resume.email}</li>
+              <li> {resume.phone}</li>
+            </ul>
+           
+           
+          </div>
+        </div>
       </div>
       <EducationalInfo />
       <PracticalExperience />
