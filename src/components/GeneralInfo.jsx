@@ -1,6 +1,6 @@
 
 
-function GeneralInfo({ show, onCloseButtonClick }) {
+function GeneralInfo({ show, onCloseButtonClick, onGeneralInfoSubmit, firstName }) {
   if (!show) {
     return null;
   }
@@ -17,8 +17,9 @@ function GeneralInfo({ show, onCloseButtonClick }) {
           type="text" 
           name="firstName" 
           id="firstName" 
-          value={null}
+          value={firstName}
           placeholder='enter your first name'
+          onChange={onGeneralInfoSubmit}
         />
         <div className="footer">
           <button onClick={onCloseButtonClick}>Close Modal</button>

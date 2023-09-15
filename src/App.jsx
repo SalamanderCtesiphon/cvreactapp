@@ -11,7 +11,7 @@ function App() {
     setShowModal(!showModal);
   };
   
-  
+  const [firstName, setFirstName] = useState('')
   const [resume, setResume] = useState({
     firstName: "FirstName",
     lastName: "LastName",
@@ -23,7 +23,9 @@ function App() {
     phone: '1-123-123-1234'
   })
 
-  
+  const onGeneralInfoSubmit = () => {
+    setResume({...resume, firstName: firstName})
+  }
 
 
 
@@ -37,6 +39,8 @@ function App() {
       <GeneralInfo 
         show={showModal} 
         onCloseButtonClick={toggleShowModal} 
+        onGeneralInfoSubmit={onGeneralInfoSubmit}
+        firstName={firstName}
       />
       <button 
         className="blue-button" 
