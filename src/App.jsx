@@ -52,6 +52,7 @@ function App() {
   })
 
   const onGeneralInfoSubmit = () => {
+    console.log(resume, education)
     setResume({
       ...resume, 
       firstName: firstName, 
@@ -62,6 +63,13 @@ function App() {
       zip: zip,
       email: email,
       phone: phone
+    })
+    setEducation({
+      ...education,
+      school: school,
+      major: major,
+      startDate: startDate,
+      finalDate: finalDate
     })
   }
 
@@ -95,6 +103,14 @@ function App() {
       <EducationalInfo 
         show={showEducation}
         onCloseButtonClick={toggleShowEducation}
+        school={school}
+        setSchool={setSchool}
+        major={major}
+        setMajor={setMajor}
+        startDate={startDate}
+        setStartDate={setStartDate}
+        finalDate={finalDate}
+        setFinalDate={setFinalDate}
       />
       <PracticalExperience 
         show={showExperience}
@@ -134,9 +150,14 @@ function App() {
               <li> {resume.email}</li>
               <li> {resume.phone}</li>
             </ul>
-           
-           
           </div>
+        </div>
+        <div className="eduDiv">
+          <ul>
+            <li>{education.school}</li>
+            <li>{education.major}</li>
+            <li>{education.startDate} - {education.finalDate}</li>
+          </ul>
         </div>
       </div>
     </div>
