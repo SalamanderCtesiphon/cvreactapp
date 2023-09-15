@@ -1,6 +1,6 @@
 
 
-function GeneralInfo({ firstName, setFirstName, show, onCloseButtonClick }) {
+function GeneralInfo({ show, onCloseButtonClick }) {
   if (!show) {
     return null;
   }
@@ -19,7 +19,6 @@ function GeneralInfo({ firstName, setFirstName, show, onCloseButtonClick }) {
           id="firstName" 
           value={firstName}
           placeholder='enter your first name'
-          onChange={(e) => setFirstName(e.target.value)}
         />
         {firstName}
         <div className="footer">

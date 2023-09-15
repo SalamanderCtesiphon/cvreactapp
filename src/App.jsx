@@ -11,10 +11,7 @@ function App() {
     setShowModal(!showModal);
   };
   
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
+  
   const [resume, setResume] = useState({
     firstName: "FirstName",
     lastName: "LastName",
@@ -24,12 +21,9 @@ function App() {
 
   
 
-  const updateResume = () => {
-    setResume({...resume, firstName: firstName, lastName: lastName, email: email, phone: phone})
-  }
+
 
   useEffect(() => {
-    updateResume()
     console.log(resume)
     
   }, [])
@@ -37,8 +31,6 @@ function App() {
     <>
     <div className="App">
       <GeneralInfo 
-        firstName={firstName}
-        setFirstName={setFirstName}
         show={showModal} 
         onCloseButtonClick={toggleShowModal} 
       />
