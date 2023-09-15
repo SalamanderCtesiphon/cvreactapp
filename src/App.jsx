@@ -40,15 +40,15 @@ function App() {
       >
         Edit General Info
       </button>
+      <div className="resumeDisplay">
+        {resume.firstName}
+        {resume.lastName}
+        {resume.email}
+        {resume.phone}
+      </div>
+      <EducationalInfo />
+      <PracticalExperience />
     </div>
-    <div className="resumeDisplay">
-      {resume.firstName}
-      {resume.lastName}
-      {resume.email}
-      {resume.phone}
-    </div>
-    <EducationalInfo />
-    <PracticalExperience />
     </>
   )
 }
