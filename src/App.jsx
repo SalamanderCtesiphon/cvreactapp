@@ -73,9 +73,6 @@ function App() {
     })
   }
 
-  useEffect(() => {
-    console.log(resume)
-  }, [])
   return (
     <>
     <button onClick={() => onGeneralInfoSubmit()}>update Resume</button>

@@ -84,9 +84,10 @@ body {
 
 .modal {
   position: relative;
+  transform: translateY(60px);
   background-color: #fff;
   width: 500px;
-  height: 440px;
+  height: 600px;
   border: 1px solid rgb(179, 179, 179);
   border-radius: 15px;
   margin: 0 15px 160px;
