@@ -86,10 +86,9 @@ body {
   position: relative;
   background-color: #fff;
   width: 500px;
-  height: 200px;
+  height: 440px;
   border: 1px solid rgb(179, 179, 179);
   border-radius: 15px;
-  overflow: hidden;
   margin: 0 15px 160px;
 }
 

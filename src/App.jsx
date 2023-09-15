@@ -31,9 +31,18 @@ function App() {
   })
 
   const onGeneralInfoSubmit = () => {
-    setResume({...resume, firstName: firstName, lastName: lastName})
+    setResume({
+      ...resume, 
+      firstName: firstName, 
+      lastName: lastName,
+      address: address,
+      city: city,
+      province: province,
+      zip: zip,
+      email: email,
+      phone: phone
+    })
   }
-
 
   console.log(resume)
   return (
@@ -47,6 +56,18 @@ function App() {
         firstName={firstName}
         setLastName={setLastName}
         lastName={lastName}
+        setAddress={setAddress}
+        address={address}
+        setCity={setCity}
+        city={city}
+        setProvince={setProvince}
+        province={province}
+        setZip={setZip}
+        zip={zip}
+        setEmail={setEmail}
+        email={email}
+        setPhone={setPhone}
+        phone={phone}
       />
       <button 
         className="blue-button" 
