@@ -131,7 +131,7 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(job, jobsArray)
+    console.log(jobsArray)
   }, [education, resume, job, jobsArray])
 
   return (
