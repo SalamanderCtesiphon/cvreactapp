@@ -53,11 +53,11 @@ function App() {
   })
 
   const [id, setId] = useState(uuidv4())
-  const [employer, setEmployer] = useState('My Work Place')
-  const [employerAddress, setEmployerAddressemployerAddress] = useState('1234 SomeOther St.')
-  const [employerCity, setEmployerCity] = useState('Some Other City')
-  const [employerZip, setEmployerZip] = useState('12345')
-  const [jobTitle, setJobTitle] = useState('Job Title')
+  const [employer, setEmployer] = useState('')
+  const [employerAddress, setEmployerAddress] = useState('')
+  const [employerCity, setEmployerCity] = useState('')
+  const [employerZip, setEmployerZip] = useState('')
+  const [jobTitle, setJobTitle] = useState('')
   const [job, setJob] = useState({
     id: uuidv4(),
     employer: employer,
@@ -97,7 +97,10 @@ function App() {
       major: major,
       startDate: startDate,
       finalDate: finalDate
-    })
+    })    
+  }
+
+  const addJobToList = () => {
     setJob({
       ...job,
       id: id,
@@ -107,10 +110,6 @@ function App() {
       employerZip: employerZip,
       jobTitle: jobTitle
     })
-    
-  }
-
-  const addJobToList = () => {
     setJobsArray([
       ...jobsArray,
       job
@@ -120,7 +119,7 @@ function App() {
 
   useEffect(() => {
     console.log(job, jobsArray)
-  }, [education, resume])
+  }, [education, resume, job, jobsArray])
 
   return (
     <>
@@ -164,7 +163,7 @@ function App() {
         employer={employer}
         setEmployer={setEmployer}
         employerAddress={employerAddress}
-        setEmployerAddressemployerAddress={setEmployerAddressemployerAddress}
+        setEmployerAddress={setEmployerAddress}
         employerCity={employerCity}
         setEmployerCity={setEmployerCity}
         employerZip={employerZip}
