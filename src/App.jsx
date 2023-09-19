@@ -135,6 +135,10 @@ function App() {
     console.log(jobsArray)
   }
 
+  function delJob(id)  {
+    setJobsArray(jobsArray.filter((job) => job.id !== id))
+  }
+
   useEffect(() => {
     console.log(jobsArray)
   }, [education, resume, job, jobsArray])
@@ -237,7 +241,12 @@ function App() {
         <div className="jobs">
           {jobsArray.map((job) => {
             return (
-              <h2 key={job.id}>{job.employer}</h2>
+              <div key={job.id}>
+                <h2 >{job.employer}</h2>
+                <p>{job.jobTitle}</p>
+                <button>edit</button>
+                <button onClick={() => delJob(job.id)}>delete</button>
+              </div>
             )
           })}
         </div>
