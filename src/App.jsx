@@ -115,6 +115,7 @@ function App() {
       ...jobsArray,
       job
     ])
+    console.log(jobsArray)
   }
 
   useEffect(() => {
