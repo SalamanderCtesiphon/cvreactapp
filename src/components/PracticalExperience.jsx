@@ -12,11 +12,35 @@ function PracticalExperience({show, onCloseButtonClick}) {
           Click on the close button to close the modal.
         </div>
         <div className="genInfoForm">
-          <label htmlFor="firstName">First name:</label>
+          <label htmlFor="employer">Company Name:</label>
           <input 
             type="text" 
-            name="firstName" 
-            id="firstName" 
+            name="employer" 
+            id="employer" 
+          />
+          <label htmlFor="employerAdress">Company Adrress:</label>
+          <input 
+            type="text" 
+            name="employerAdress" 
+            id="employerAdress" 
+          />
+          <label htmlFor="employerCity">Company City:</label>
+          <input 
+            type="text" 
+            name="employerCity" 
+            id="employerCity" 
+          />
+          <label htmlFor="employerZip">Zip Code:</label>
+          <input 
+            type="text" 
+            name="employerZip" 
+            id="employerZip" 
+          />
+          <label htmlFor="jobTitle">Job Title:</label>
+          <input 
+            type="text" 
+            name="jobTitle" 
+            id="jobTitle" 
           />
         </div>
         <div className="footer">
