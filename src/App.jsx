@@ -63,6 +63,15 @@ function App() {
     employerZip: employerZip,
     jobTitle: jobTitle
   })
+  const [jobsArray, setJobsArray] = useState([
+    {
+      employer: "A Business",
+      employerAdress: "4455 Another St.",
+      employerCity: "New Orleans",
+      employerZip: "78978",
+      jobTitle: "Janitor"
+    }
+  ])
 
   
 
@@ -85,10 +94,22 @@ function App() {
       startDate: startDate,
       finalDate: finalDate
     })
+    setJob({
+      ...job,
+      employer: employer,
+      employerAdress: employerAdress,
+      employerCity: employerCity,
+      employerZip: employerZip,
+      jobTitle: jobTitle
+    })
+    setJobsArray([
+      ...jobsArray,
+      job
+    ])
   }
 
   useEffect(() => {
-    console.log(job)
+    console.log(job, jobsArray)
   }, [education, resume])
 
   return (
