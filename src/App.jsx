@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 import './App.css'
 import EducationalInfo from './components/EducationalInfo'
 import GeneralInfo from './components/GeneralInfo'
@@ -51,12 +52,14 @@ function App() {
     finalDate: "January 2012"
   })
 
+  const [id, setId] = useState(uuidv4())
   const [employer, setEmployer] = useState('My Work Place')
   const [employerAddress, setEmployerAddressemployerAddress] = useState('1234 SomeOther St.')
   const [employerCity, setEmployerCity] = useState('Some Other City')
   const [employerZip, setEmployerZip] = useState('12345')
   const [jobTitle, setJobTitle] = useState('Job Title')
   const [job, setJob] = useState({
+    id: uuidv4(),
     employer: employer,
     employerAddress: employerAddress,
     employerCity: employerCity,
@@ -65,6 +68,7 @@ function App() {
   })
   const [jobsArray, setJobsArray] = useState([
     {
+      id: id,
       employer: "A Business",
       employerAddress: "4455 Another St.",
       employerCity: "New Orleans",
@@ -96,12 +100,17 @@ function App() {
     })
     setJob({
       ...job,
+      id: id,
       employer: employer,
       employerAddress: employerAddress,
       employerCity: employerCity,
       employerZip: employerZip,
       jobTitle: jobTitle
     })
+    
+  }
+
+  const addJobToList = () => {
     setJobsArray([
       ...jobsArray,
       job
@@ -161,6 +170,7 @@ function App() {
         setEmployerZip={setEmployerZip}
         jobTitle={jobTitle}
         setJobTitle={setJobTitle}
+        addJobToList={addJobToList}
       />
       <div className="btnBox">
         <button 
@@ -204,6 +214,13 @@ function App() {
             <li>{education.major}</li>
             <li>{education.startDate} - {education.finalDate}</li>
           </ul>
+        </div>
+        <div className="jobs">
+          {jobsArray.map((job) => {
+            return (
+              <h2 key={job.id}>{job.employer}</h2>
+            )
+          })}
         </div>
       </div>
     </div>
