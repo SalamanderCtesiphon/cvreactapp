@@ -11,10 +11,12 @@ function App() {
   const [showExperience, setShowExperience] = useState(false)
 
   const toggleShowModal = () => {
-    setShowModal(!showModal);
+    onGeneralInfoSubmit()
+    setShowModal(!showModal)
   };
 
   const toggleShowEducation = () => {
+    onEducationSubmit()
     setShowEducation(!showEducation);
   };
 
@@ -90,14 +92,17 @@ function App() {
       zip: zip,
       email: email,
       phone: phone
-    })
+    }) 
+  }
+
+  const onEducationSubmit = () => {
     setEducation({
       ...education,
       school: school,
       major: major,
       startDate: startDate,
       finalDate: finalDate
-    })    
+    })   
   }
 
   const addJob = () => {
