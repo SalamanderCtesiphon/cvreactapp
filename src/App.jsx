@@ -102,7 +102,6 @@ function App() {
 
   const addJobToList = () => {
     setJob({
-      ...job,
       id: id,
       employer: employer,
       employerAddress: employerAddress,
