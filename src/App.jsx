@@ -60,13 +60,15 @@ function App() {
   const [employerCity, setEmployerCity] = useState('')
   const [employerZip, setEmployerZip] = useState('')
   const [jobTitle, setJobTitle] = useState('')
+  const [editing, setEditing] = useState(false)
   const [job, setJob] = useState({
     id: id,
     employer: employer,
     employerAddress: employerAddress,
     employerCity: employerCity,
     employerZip: employerZip,
-    jobTitle: jobTitle
+    jobTitle: jobTitle,
+    editing: editing
   })
   const [jobsArray, setJobsArray] = useState([
     {
@@ -75,11 +77,10 @@ function App() {
       employerAddress: "4455 Another St.",
       employerCity: "New Orleans",
       employerZip: "78978",
-      jobTitle: "Janitor"
+      jobTitle: "Janitor", 
+      editing: editing
     }
-  ])
-
-  
+  ])  
 
   const onGeneralInfoSubmit = () => {
     setResume({
@@ -112,10 +113,15 @@ function App() {
       employerAddress: employerAddress,
       employerCity: employerCity,
       employerZip: employerZip,
-      jobTitle: jobTitle
+      jobTitle: jobTitle, 
+      editing: editing
     })
-    const btn = document.getElementById('addBtn')
-    btn.style.visibility = 'hidden'
+    if(editing) {
+      return
+    } else {
+      const btn = document.getElementById('addBtn')
+      btn.style.visibility = 'hidden'
+    }
   }
 
   const addJobToList = () => {
@@ -124,19 +130,28 @@ function App() {
     setEmployerCity("")
     setEmployerZip("")
     setJobTitle("")
+    setEditing(false)
     setJobsArray([
       ...jobsArray,
       job
     ])
 
-    const btn = document.getElementById('resumeBtn')
-    btn.style.visibility = 'hidden'
+    if(editing) {
+      return
+    } else {
+      const btn = document.getElementById('resumeBtn')
+      btn.style.visibility = 'hidden'
+    }
     
     console.log(jobsArray)
   }
 
   function delJob(id)  {
     setJobsArray(jobsArray.filter((job) => job.id !== id))
+  }
+
+  const toggleEditing = (id) => {
+    setEditing(true)
   }
 
   useEffect(() => {
@@ -242,10 +257,27 @@ function App() {
           {jobsArray.map((job) => {
             return (
               <div key={job.id}>
-                <h2 >{job.employer}</h2>
-                <p>{job.jobTitle}</p>
-                <button>edit</button>
-                <button onClick={() => delJob(job.id)}>delete</button>
+                {
+                  editing ? <div>
+                  <label htmlFor="employer">Company Name:</label>
+                  <input 
+                    type="text" 
+                    name="employer" 
+                    id="employer" 
+                    value={job.employer}
+                    onChange={(e) => setEmployer(e.target.value)}
+                  />
+                  <button onClick={() => addJob()}>Update</button>
+                </div>
+                : 
+                <div key={job.id}>
+                  <h2 >{job.employer}</h2>
+                  <p>{job.jobTitle}</p>
+                  <button onClick={() => toggleEditing(job.id)}>edit</button>
+                  <button onClick={() => delJob(job.id)}>delete</button>
+                </div>
+                }
+
               </div>
             )
           })}
