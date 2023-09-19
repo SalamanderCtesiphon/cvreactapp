@@ -52,14 +52,14 @@ function App() {
     finalDate: "January 2012"
   })
 
-  const [id, setId] = useState(uuidv4())
+  const [id, setId] = useState('')
   const [employer, setEmployer] = useState('')
   const [employerAddress, setEmployerAddress] = useState('')
   const [employerCity, setEmployerCity] = useState('')
   const [employerZip, setEmployerZip] = useState('')
   const [jobTitle, setJobTitle] = useState('')
   const [job, setJob] = useState({
-    id: uuidv4(),
+    id: id,
     employer: employer,
     employerAddress: employerAddress,
     employerCity: employerCity,
@@ -102,7 +102,7 @@ function App() {
 
   const addJobToList = () => {
     setJob({
-      id: id,
+      id: uuidv4(),
       employer: employer,
       employerAddress: employerAddress,
       employerCity: employerCity,
