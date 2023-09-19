@@ -151,7 +151,11 @@ function App() {
   }
 
   const toggleEditing = (id) => {
-    setEditing(true)
+    setJobsArray(jobsArray.filter((job) => {
+      if(job.id === id) {setEditing(!editing)}
+
+    }))
+    
   }
 
   useEffect(() => {
@@ -267,7 +271,7 @@ function App() {
                     value={job.employer}
                     onChange={(e) => setEmployer(e.target.value)}
                   />
-                  <button onClick={() => addJob()}>Update</button>
+                  <button onClick={() => addJob(job.id)}>Update</button>
                 </div>
                 : 
                 <div key={job.id}>
