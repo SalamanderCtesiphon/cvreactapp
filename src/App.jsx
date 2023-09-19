@@ -51,8 +51,22 @@ function App() {
     finalDate: "January 2012"
   })
 
+  const [employer, setEmployer] = useState('My Work Place')
+  const [employerAdress, setEmployerAdress] = useState('1234 SomeOther St.')
+  const [employerCity, setEmployerCity] = useState('Some Other City')
+  const [employerZip, setEmployerZip] = useState('12345')
+  const [jobTitle, setJobTitle] = useState('Job Title')
+  const [job, setJob] = useState({
+    employer: employer,
+    employerAdress: employerAdress,
+    employerCity: employerCity,
+    employerZip: employerZip,
+    jobTitle: jobTitle
+  })
+
+  
+
   const onGeneralInfoSubmit = () => {
-    console.log(resume, education)
     setResume({
       ...resume, 
       firstName: firstName, 
@@ -74,7 +88,7 @@ function App() {
   }
 
   useEffect(() => {
-    onGeneralInfoSubmit()
+    console.log(job)
   }, [education, resume])
 
   return (
