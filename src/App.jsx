@@ -52,13 +52,13 @@ function App() {
   })
 
   const [employer, setEmployer] = useState('My Work Place')
-  const [employerAdress, setEmployerAdress] = useState('1234 SomeOther St.')
+  const [employerAddress, setEmployerAddressemployerAddress] = useState('1234 SomeOther St.')
   const [employerCity, setEmployerCity] = useState('Some Other City')
   const [employerZip, setEmployerZip] = useState('12345')
   const [jobTitle, setJobTitle] = useState('Job Title')
   const [job, setJob] = useState({
     employer: employer,
-    employerAdress: employerAdress,
+    employerAddress: employerAddress,
     employerCity: employerCity,
     employerZip: employerZip,
     jobTitle: jobTitle
@@ -66,7 +66,7 @@ function App() {
   const [jobsArray, setJobsArray] = useState([
     {
       employer: "A Business",
-      employerAdress: "4455 Another St.",
+      employerAddress: "4455 Another St.",
       employerCity: "New Orleans",
       employerZip: "78978",
       jobTitle: "Janitor"
@@ -97,7 +97,7 @@ function App() {
     setJob({
       ...job,
       employer: employer,
-      employerAdress: employerAdress,
+      employerAddress: employerAddress,
       employerCity: employerCity,
       employerZip: employerZip,
       jobTitle: jobTitle
@@ -151,6 +151,16 @@ function App() {
       <PracticalExperience 
         show={showExperience}
         onCloseButtonClick={toggleShowExperience}
+        employer={employer}
+        setEmployer={setEmployer}
+        employerAddress={employerAddress}
+        setEmployerAddressemployerAddress={setEmployerAddressemployerAddress}
+        employerCity={employerCity}
+        setEmployerCity={setEmployerCity}
+        employerZip={employerZip}
+        setEmployerZip={setEmployerZip}
+        jobTitle={jobTitle}
+        setJobTitle={setJobTitle}
       />
       <div className="btnBox">
         <button 
