@@ -52,7 +52,7 @@ function App() {
     finalDate: "January 2012"
   })
 
-  const [id, setId] = useState('')
+  const [id, setId] = useState(uuidv4())
   const [employer, setEmployer] = useState('')
   const [employerAddress, setEmployerAddress] = useState('')
   const [employerCity, setEmployerCity] = useState('')
@@ -68,7 +68,7 @@ function App() {
   })
   const [jobsArray, setJobsArray] = useState([
     {
-      id: id,
+      id: 1,
       employer: "A Business",
       employerAddress: "4455 Another St.",
       employerCity: "New Orleans",
@@ -100,19 +100,23 @@ function App() {
     })    
   }
 
-  const addJobToList = () => {
+  const addJob = () => {
     setJob({
-      id: uuidv4(),
+      id: id,
       employer: employer,
       employerAddress: employerAddress,
       employerCity: employerCity,
       employerZip: employerZip,
       jobTitle: jobTitle
     })
+  }
+
+  const addJobToList = () => {
     setJobsArray([
       ...jobsArray,
       job
     ])
+    
     console.log(jobsArray)
   }
 
@@ -169,6 +173,7 @@ function App() {
         setEmployerZip={setEmployerZip}
         jobTitle={jobTitle}
         setJobTitle={setJobTitle}
+        addJob={addJob}
         addJobToList={addJobToList}
       />
       <div className="btnBox">

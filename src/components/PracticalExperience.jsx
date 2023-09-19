@@ -13,7 +13,8 @@ function PracticalExperience({
   setEmployerZip,
   jobTitle, 
   setJobTitle,
-  addJobToList
+  addJobToList, 
+  addJob
 }) {
   if (!show) {
     return null;
@@ -66,7 +67,8 @@ function PracticalExperience({
             value={jobTitle}
             onChange={(e) => setJobTitle(e.target.value)} 
           />
-          <button onClick={addJobToList}>Add Job</button>
+          <button onClick={addJob}>add job</button>
+          <button onClick={addJobToList}>Add Job to resume</button>
         </div>
         <div className="footer">
           <button onClick={onCloseButtonClick}>Close Modal</button>
