@@ -51,6 +51,7 @@ body {
   user-select: none;
   -webkit-user-select: none;
   width: 200px;
+  margin: 10px;
 }
 
 .blue-button:after {
@@ -120,6 +121,7 @@ body {
 }
 
 .modal button {
+  margin: 10px;
   border-radius: 0.375rem;
   border-style: none;
   background: rgb(220, 38, 38);

@@ -52,7 +52,7 @@ function App() {
     finalDate: "January 2012"
   })
 
-  const [id, setId] = useState(uuidv4())
+  const [id, setId] = useState('')
   const [employer, setEmployer] = useState('')
   const [employerAddress, setEmployerAddress] = useState('')
   const [employerCity, setEmployerCity] = useState('')
@@ -102,20 +102,30 @@ function App() {
 
   const addJob = () => {
     setJob({
-      id: id,
+      id: uuidv4(),
       employer: employer,
       employerAddress: employerAddress,
       employerCity: employerCity,
       employerZip: employerZip,
       jobTitle: jobTitle
     })
+    const btn = document.getElementById('addBtn')
+    btn.style.visibility = 'hidden'
   }
 
   const addJobToList = () => {
+    setEmployer("")
+    setEmployerAddress("")
+    setEmployerCity("")
+    setEmployerZip("")
+    setJobTitle("")
     setJobsArray([
       ...jobsArray,
       job
     ])
+
+    const btn = document.getElementById('resumeBtn')
+    btn.style.visibility = 'hidden'
     
     console.log(jobsArray)
   }

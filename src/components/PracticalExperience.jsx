@@ -67,8 +67,8 @@ function PracticalExperience({
             value={jobTitle}
             onChange={(e) => setJobTitle(e.target.value)} 
           />
-          <button onClick={addJob}>add job</button>
-          <button onClick={addJobToList}>Add Job to resume</button>
+          <button onClick={addJob} id='addBtn'>add job</button>
+          <button onClick={addJobToList} id='resumeBtn'>Add Job to resume</button>
         </div>
         <div className="footer">
           <button onClick={onCloseButtonClick}>Close Modal</button>
