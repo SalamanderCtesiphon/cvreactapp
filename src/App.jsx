@@ -60,7 +60,7 @@ function App() {
   const [employerCity, setEmployerCity] = useState('')
   const [employerZip, setEmployerZip] = useState('')
   const [jobTitle, setJobTitle] = useState('')
-  const [editing, setEditing] = useState(false)
+  const [editing, setEditing] = useState(null)
   const [job, setJob] = useState({
     id: id,
     employer: employer,
@@ -68,7 +68,7 @@ function App() {
     employerCity: employerCity,
     employerZip: employerZip,
     jobTitle: jobTitle,
-    editing: editing
+    editing: null
   })
   const [jobsArray, setJobsArray] = useState([
     {
@@ -78,7 +78,7 @@ function App() {
       employerCity: "New Orleans",
       employerZip: "78978",
       jobTitle: "Janitor", 
-      editing: editing
+      editing: null
     }
   ])  
 
@@ -114,7 +114,7 @@ function App() {
       employerCity: employerCity,
       employerZip: employerZip,
       jobTitle: jobTitle, 
-      editing: editing
+      editing: null
     })
     if(editing) {
       return
@@ -153,7 +153,7 @@ function App() {
   const toggleEditing = (id) => {
     jobsArray.map((job) => {
       if(job.id === id) {
-        setEditing(!editing)
+        setEditing(true)
       }
     })
     
@@ -269,13 +269,13 @@ function App() {
                     type="text" 
                     name="employer" 
                     id="employer" 
-                    value={job.employer}
+                    value={employer}
                     onChange={(e) => setEmployer(e.target.value)}
                   />
-                  <button onClick={() => console.log('hi')}>Update</button>
+                  <button onClick={() => setEditing(job.id)}>Update</button>
                 </div>
                 : 
-                <div key={job.id}>
+                <div>
                   <h2 >{job.employer}</h2>
                   <p>{job.jobTitle}</p>
                   <button onClick={() => toggleEditing(job.id)}>edit</button>
