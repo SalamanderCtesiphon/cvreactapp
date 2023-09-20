@@ -151,10 +151,11 @@ function App() {
   }
 
   const toggleEditing = (id) => {
-    setJobsArray(jobsArray.filter((job) => {
-      if(job.id === id) {setEditing(!editing)}
-
-    }))
+    jobsArray.map((job) => {
+      if(job.id === id) {
+        setEditing(!editing)
+      }
+    })
     
   }
 
@@ -271,7 +272,7 @@ function App() {
                     value={job.employer}
                     onChange={(e) => setEmployer(e.target.value)}
                   />
-                  <button onClick={() => addJob(job.id)}>Update</button>
+                  <button onClick={() => console.log('hi')}>Update</button>
                 </div>
                 : 
                 <div key={job.id}>
